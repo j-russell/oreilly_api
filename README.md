@@ -3,11 +3,11 @@ interview-exercise-cloud
 
 `docker/`
 
-* Contains [`Dockerfile`](Dockerfile), [`requirements.txt`](requirements.txt) and the Python Flask app ([`app.py`](app.py)) used to generate the docker image [`jrussell/api:latest`](https://hub.docker.com/r/jrussell/api)
+* Contains [`Dockerfile`](docker/Dockerfile), [`requirements.txt`](docker/requirements.txt) and the Python Flask app ([`app.py`](docker/app.py)) used to generate the docker image [`jrussell/api:latest`](https://hub.docker.com/r/jrussell/api)
 
 `kubernetes/`
 
-* Contains [`api.yaml`](api.yaml) manifest for deploying the cluster
+* Contains [`api.yaml`](kubernetes/api.yaml) manifest for deploying the cluster
 
 # Deploy to kubernetes
 `kubectl apply -f kubernetes/api.yaml`
