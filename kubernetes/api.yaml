@@ -1,0 +1,66 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: db-deployment
+  namespace: default
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: postgres
+  template:
+    metadata:
+      labels:
+        app: postgres
+    spec:
+      containers:
+      - name: postgres
+        image: caedus41/oreilly-cloud-engineer-postgres
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: db-service
+  namespace: default
+spec:
+  type: ClusterIP
+  selector:
+    app: postgres
+  ports:
+  - name: psql
+    port: 5432
+    targetPort: 5432
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: api-deployment
+  namespace: default
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: flask
+  template:
+    metadata:
+      labels:
+        app: flask
+    spec:
+      containers:
+      - name: flask
+        image: jrussell/api:latest
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: api-service
+  namespace: default
+spec:
+  type: NodePort
+  selector:
+    app: flask
+  ports:
+  - name: api
+    port: 30088
+    nodePort: 30088
+    targetPort: 88
