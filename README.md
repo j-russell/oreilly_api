@@ -11,8 +11,8 @@ interview-exercise-cloud
 
 # Deploy to kubernetes
 `kubectl apply -f kubernetes/api.yaml`
-- Creates 2 pods - one for api and one for db
-- Api will be available on `localhost:30088`
+- Creates 2 pods - one for API and one for DB
+- API will be available on `localhost:30088`
 
 # API
 **All responses are `application/json`**
@@ -25,6 +25,6 @@ interview-exercise-cloud
 - `/isbn/<isbn>`
     - Get work by `isbn`
 - `/titles/<title>`
-    * Get works matching `title` (Case-insensitive)
+    * Get works matching `title` _(Case-insensitive)_
 - `/authors/<author>`
-    * Get works matching `author` (Case-insensitive)
+    * Get works matching `author` _(Case-insensitive)_
