@@ -12,14 +12,14 @@
 # Deploy to kubernetes
 `kubectl apply -f kubernetes/api.yaml`
 - Creates 2 pods - one for API and one for DB
-- API will be available on `<cluster_ip>:30088` (Using `NodePort`)
+- API will be available on `127.0.0.1:30088` (Using `NodePort`)
 
 # API
 **All responses are `application/json`**
 
 **_Inputs are not sanitized_**
 
-`<cluster_ip>:30088`
+`127.0.0.1:30088`
 - `/`
     - Get all works
 - `/works/<work_id>`
